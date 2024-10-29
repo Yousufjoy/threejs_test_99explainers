@@ -3,13 +3,13 @@ import * as THREE from "three";
 import { useEffect, useRef, useState } from "react";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import Link from "next/link";
 
 export default function HeroSection() {
   const canvasRef = useRef();
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Check if the window object is available
     if (typeof window !== "undefined") {
       setIsClient(true);
     }
@@ -75,7 +75,6 @@ export default function HeroSection() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden ">
-      {/* Background Video */}
       <div className="absolute inset-0">
         <video
           className="w-full h-full object-cover"
@@ -86,67 +85,61 @@ export default function HeroSection() {
         >
           <source src="/bg.mov" type="video/mp4" />
         </video>
-        {/* Overlay to ensure text readability */}
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      {/* Navigation */}
       <header className="relative z-10">
         <nav className="container mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
-            {/* Left Side: Logo/Brand Name */}
             <span className="text-3xl font-bold text-white">
               <span className="text-red-500 font-fanwood">99</span>
               <span className="font-fanwood text-black">Explainers</span>
             </span>
 
-            {/* Right Side: Navigation Links */}
             <div className="hidden md:flex space-x-6">
-              <a
+              <Link
                 href="#home"
                 className="text-white hover:text-blue-400 transition-colors duration-200"
               >
                 Home
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#about"
                 className="text-white hover:text-blue-400 transition-colors duration-200"
               >
                 About
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#portfolio"
                 className="text-white hover:text-blue-400 transition-colors duration-200"
               >
                 Portfolio
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#request-quote"
                 className="text-white hover:text-blue-400 transition-colors duration-200"
               >
                 Request a Quote
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#learn"
                 className="text-white hover:text-blue-400 transition-colors duration-200"
               >
                 Learn
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#contact-us"
                 className="text-white hover:text-blue-400 transition-colors duration-200"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </nav>
       </header>
 
-      {/* Main Content */}
       <main className="relative z-10 container mx-auto px-6 ">
         <div className="grid md:grid-cols-2 gap-8 min-h-[calc(100vh-120px)] items-center  px-[120px]">
-          {/* Left Content */}
           <div className="space-y-8 md:pb-[100px] mb-[70px]">
             <h1 className="text-2xl md:text-6xl font-bold leading-tight mb-6 font-fanwood">
               <span className="text-white">Discover </span>
@@ -165,8 +158,7 @@ export default function HeroSection() {
             </button>
           </div>
 
-          {/* Right Content - Canvas */}
-          <div className="flex justify-center items-center h-screen  ml-[150px] mt-[50px] cursor-pointer ">
+          <div className="flex justify-center items-center h-screen  md:ml-[150px] md:mt-[50px] cursor-pointer ">
             <canvas ref={canvasRef} className="w-full max-w-2xl h-auto" />
           </div>
         </div>
