@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        fanwood: ["Fanwood_Text", "serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
